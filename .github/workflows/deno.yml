@@ -12,7 +12,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-24.04 soon
+    runs-on: ubuntu-24.04
 
     strategy:
       matrix:

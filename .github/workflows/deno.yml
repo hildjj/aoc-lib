@@ -9,23 +9,20 @@ on:
     secrets:
       CODECOV_TOKEN:
         required: true
-      GH_PAT:
-        required: true
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     strategy:
       matrix:
-        deno-version: [~2.1.2]
+        deno-version: [2]
 
     steps:
       - name: Git Checkout
         uses: actions/checkout@v4
         with:
           submodules: true
-          token: ${{ secrets.GH_PAT }}
       - uses: actions/cache@v4
         with:
           path: |
@@ -41,6 +38,6 @@ jobs:
       - name: Test
         run: deno task ci
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v5
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

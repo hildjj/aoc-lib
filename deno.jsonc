@@ -70,5 +70,13 @@
       ]
     }
   },
+  "publish": {
+    "include": [
+      "LICENSE.md",
+      "README.md",
+      "*.ts",
+      "deno.jsonc"
+    ]
+  },
   "lock": false
 }
